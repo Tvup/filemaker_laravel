@@ -14,7 +14,7 @@
  **/
 
 use Illuminate\Database\Connection as BaseConnection;
-use FileMaker;
+use airmoi\FileMaker\FileMaker;
 
 /**
  * It manages the filemaker connection.
