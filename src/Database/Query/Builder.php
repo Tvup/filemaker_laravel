@@ -14,7 +14,7 @@
  */
 
 use Illuminate\Database\Query\Builder as BaseBuilder;
-use FileMaker;
+use airmoi\FileMaker\FileMaker;
 use Log;
 
 /**
