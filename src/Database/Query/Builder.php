@@ -437,7 +437,7 @@ class Builder extends BaseBuilder
             $operator = $where['operator'] === '=' ? '==' : $where['operator'];
 
             $findCommand->addFindCriterion(
-                $where['column'],
+                str_replace($findCommand->getLayout()->name . '.','',$where['column']),
                 $operator . $where['value']
             );
         }
