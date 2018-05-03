@@ -434,12 +434,14 @@ class Builder extends BaseBuilder
         }
 
         foreach ($wheres as $where) {
+         if(array_key_exists('operator', $where)) {
             $operator = $where['operator'] === '=' ? '==' : $where['operator'];
 
             $findCommand->addFindCriterion(
                 str_replace($findCommand->getLayout()->name . '.','',$where['column']),
                 $operator . $where['value']
             );
+         }
         }
     }
 
