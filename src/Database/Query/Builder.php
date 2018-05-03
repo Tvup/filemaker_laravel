@@ -278,8 +278,8 @@ class Builder extends BaseBuilder
             $i = 1;
             foreach ($this->orders as $order) {
                 $direction = $order['direction'] == 'desc'
-                             ? FILEMAKER_SORT_DESCEND
-                             : FILEMAKER_SORT_ASCEND;
+                             ? FileMaker::SORT_DESCEND
+                             : FileMaker::SORT_ASCEND;
                 $command->addSortRule($order['column'], $i, $direction);
                 $i++;
             }
@@ -437,7 +437,7 @@ class Builder extends BaseBuilder
             $operator = $where['operator'] === '=' ? '==' : $where['operator'];
 
             $findCommand->addFindCriterion(
-                $where['column'],
+                str_replace($findCommand->getLayout()->name . '.','',$where['column']),
                 $operator . $where['value']
             );
         }
